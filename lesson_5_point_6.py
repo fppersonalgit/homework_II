@@ -4,11 +4,11 @@
 # количество занятий по нему.
 
 my_lessons = {}
-lessons_file = open("my_lessons.txt", "r")
-for line in lessons_file:
-    name, stats = line.split(":")
-    name_sum = sum(map(int, "".join([i for i in stats if i == " " or i.isdigit()]),split()))
-    my_lessons[name] = name_sum
+with open("my_lessons.txt") as lessons_file:
+    for line in lessons_file:
+       name, stats = line.split(":")
+       name_sum = sum(map(int, "".join([i for i in stats if i == " " or i.isdigit()]),split()))
+       my_lessons[name] = name_sum
 
 print(my_lessons)
 
